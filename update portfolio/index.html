@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rohit Kumar Roy | Portfolio</title>
+  <style>
+    /* ===== Global Styles ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: #f9fafc;
+      color: #333;
+      line-height: 1.6;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ===== Header / Nav ===== */
+    header {
+      background: #1e1e2f;
+      color: #fff;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header h1 {
+      font-size: 1.6rem;
+      color: #ff4d5a;
+      animation: glow 2s infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #ff4d5a, 0 0 10px #ff4d5a; }
+      to { text-shadow: 0 0 15px #ff4d5a, 0 0 25px #ff758f; }
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav a {
+      color: #fff;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      color: #ff4d5a;
+    }
+
+    /* ===== Hero Section ===== */
+    .hero {
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                  url("rohit.jpg") center/cover no-repeat;
+      color: #fff;
+      padding: 20px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+    }
+
+    /* ===== About Section ===== */
+    .about {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+    .about.show { opacity: 1; transform: translateY(0); }
+    .about h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: #ff4d5a;
+    }
+
+    /* ===== Skills Section ===== */
+    .skills {
+      padding: 60px 20px;
+      background: #fff;
+    }
+    .skills h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      color: #ff4d5a;
+      margin-bottom: 30px;
+    }
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .skill {
+      background: #f1f1f1;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      transition: 0.3s;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+    .skill:hover {
+      background: #ff4d5a;
+      color: #fff;
+      transform: translateY(-8px) scale(1.05);
+    }
+
+    /* ===== Achievements Section ===== */
+    .achievements {
+      padding: 60px 20px;
+      background: #f9f9f9;
+    }
+    .achievements h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      color: #ff4d5a;
+      margin-bottom: 30px;
+    }
+    .timeline {
+      max-width: 800px;
+      margin: auto;
+      list-style: none;
+    }
+    .timeline li {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+    .timeline li:hover {
+      transform: scale(1.03);
+    }
+
+    /* ===== Contact Section ===== */
+    .contact {
+      padding: 60px 20px;
+      text-align: center;
+      background: #1e1e2f;
+      color: #fff;
+    }
+    .contact h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      color: #ff4d5a;
+    }
+    .contact p {
+      margin-bottom: 15px;
+    }
+    .contact a {
+      color: #ff4d5a;
+      font-weight: bold;
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 15px;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: #1e1e2f;
+        position: absolute;
+        top: 60px;
+        right: 40px;
+        width: 200px;
+        padding: 15px;
+        border-radius: 8px;
+      }
+      nav ul.active { display: flex; }
+      .menu-toggle {
+        cursor: pointer;
+        font-size: 1.5rem;
+        display: block;
+      }
+    }
+    @media (min-width: 769px) {
+      .menu-toggle { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Rohit Kumar Roy</h1>
+    <nav>
+      <span class="menu-toggle">☰</span>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Subjects</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Hello, I'm Rohit Kumar Roy</h2>
+    <p>A Class 11 Student & JEE Aspirant passionate about Science, Mathematics, and Technology.</p>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>I am a Class 11 student preparing for the Joint Entrance Examination (JEE). 
+    I have a strong interest in Physics, Chemistry, and Mathematics, and I enjoy solving challenging problems and exploring new concepts. 
+    My goal is to pursue engineering at a top IIT and contribute to the field of technology and innovation.</p>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills">
+    <h2>Subjects & Skills</h2>
+    <div class="skill-grid">
+      <div class="skill">Physics</div>
+      <div class="skill">Chemistry</div>
+      <div class="skill">Mathematics</div>
+      <div class="skill">Problem Solving</div>
+      <div class="skill">Logical Thinking</div>
+      <div class="skill">Coding (HTML, CSS, JavaScript)</div>
+    </div>
+  </section>
+
+  <!-- Achievements Section -->
+  <section id="achievements" class="achievements">
+    <h2>My Achievements</h2>
+    <ul class="timeline">
+      <li>📘 Completed advanced problem sets in Physics, Chemistry and Math</li>
+      <li>💻 Built small coding projects for fun learning</li>
+      <li>🎯 Preparing for JEE Main & Advanced (2027)</li>
+    </ul>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:rohitroy31012010@gmail.com">rohitroy31012010@gmail.com</a></p>
+    <p>Phone: +91-XXXXXXXXX</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Rohit Kumar Roy | Class 11 JEE Aspirant</p>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    const toggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector("nav ul");
+    toggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+
+    // Scroll reveal
+    const reveal = document.querySelectorAll(".about, .skills, .achievements, .contact");
+    window.addEventListener("scroll", () => {
+      reveal.forEach(section => {
+        const rect = section.getBoundingClientRect().top;
+        if (rect < window.innerHeight - 100) {
+          section.classList.add("show");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
